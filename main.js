@@ -31,10 +31,9 @@ const createQuiz = function(){
 
     },
     showScore:function(timeStopped){
-
-      // let points=0;
       let score=0;
       const selectAnswer=[...document.querySelectorAll("select")];
+      const total = selectAnswer.length;
       selectAnswer.forEach((select)=>{
         const i = select.selectedIndex;
           const answer = select.options[i].value;
@@ -50,7 +49,7 @@ const createQuiz = function(){
       });
       if(timeStopped<=60){
         let points;
-        if(score>=1&&score<=3){
+        if(score>=1&&score<=total-1){
           points=10;
           points+=(score+timeStopped);
           document.querySelector("form").style.display="none";
@@ -70,21 +69,6 @@ const createQuiz = function(){
         }
         const p=document.querySelector("#finalScore").innerText=points;
 }
-
-
-      // const timeForQuestion = 20;// time
-      //       const timeForExercise = timeForQuestion * selectAnswer.length; // 20*6 = 120sec
-      //       const spentTime = timeForExercise - timeStopped; //120 sec - 90 sec
-      //       const spentTimeRatio = timeForExercise / spentTime; // 120 / 30
-      //       const maxPointsForTime = timeForQuestion * score; //
-      //
-      //       points += (maxPointsForTime / spentTimeRatio);
-      //       // const container = document.getElementById("user-time");
-      //       // container.innerText = score;
-
-
-      const total = selectAnswer.length;
-      // document.querySelector(".result").innerText=Math.floor(points);
       if(score==total){
 
         const confetti = new ConfettiGenerator({ target: 'confetti' });
@@ -100,6 +84,7 @@ const url="https://gist.githubusercontent.com/benna100/13f5850bf78f59d9baea915cb
 function start(){
   const hyfQuiz=createQuiz();
   document.querySelector("#startQuiz").style.display="none";
+  document.querySelector("#info").style.display="none";
  hyfQuiz.fetchQuiz(url)
   .then((questions)=>hyfQuiz.renderQuiz(questions));
   let userAnswered = false;
