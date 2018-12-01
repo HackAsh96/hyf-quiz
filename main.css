@@ -159,7 +159,7 @@ canvas {
 
 .result {
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 24px;
   animation: shaky 2s infinite;
