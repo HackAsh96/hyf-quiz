@@ -159,9 +159,10 @@ canvas {
 
 .result {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 60px;
   font-weight: bold;
   margin-bottom: 24px;
+  animation: shaky 2s infinite;
 }
 main{
   display: none;
