@@ -38,7 +38,6 @@ const createQuiz = function(){
         const i = select.selectedIndex;
           const answer = select.options[i].value;
           if(answer=="true"){
-            // points+=50;
             score ++;
             select.style.background="white";
 
@@ -52,11 +51,10 @@ const createQuiz = function(){
         if(score>=1&&score<=total-1){
           points=10;
           points+=(score+timeStopped);
-          document.querySelector("form").style.display="none";
           document.querySelector("#score").style.display="none";
           document.querySelector("#reset").style.left="45%";
           document.querySelector("#reset").style.bottom="-100%";
-          document.querySelector("#finalScore").style.display="block";
+          document.querySelector(".result").innerText=points;
         }
         else{
           points=100;
