@@ -64,8 +64,8 @@ const createQuiz = function(){
           document.querySelector("#reset").style.left="45%";
           document.querySelector("#reset").style.bottom="-100%";
           document.querySelector("#finalScore").style.display="block";
+          document.querySelector("#finalScore").innerText=points;
         }
-        const p=document.querySelector("#finalScore").innerText=points;
 }
       if(score==total){
 
